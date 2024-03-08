@@ -7,7 +7,7 @@ class SettingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Message"),
+        title: Text("Notification"),
         leading: Icon(Icons.arrow_back_ios),
         centerTitle: true,
         actions: [
@@ -17,11 +17,11 @@ class SettingView extends StatelessWidget {
           ),
         ],
       ),
-      body: MyListView(),
+      body: MessageItems(),
     );
   }
 }
-class MyListView extends StatelessWidget {
+class MessageItems extends StatelessWidget {
 
   final List<String> texts = [
     "New Post",
@@ -44,49 +44,45 @@ class MyListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: texts.length,
+      itemExtent: 50,
       itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          title: Container(
-            padding: EdgeInsets.only(bottom: 4.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    texts[index],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-          ),
-          subtitle: Row(
-            children: [
-              Text(
-                subtitles[index],
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                  color: Colors.grey,
-                ),
-              ),
-              Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Transform.scale(
-                      scale: 0.5,
-                      child: Switch(
-                        value: true,
-                        onChanged: (bool value) {
-                        },
-                        activeColor: Colors.teal,
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 12.0),
+          child: ListTile(
+            title: Text(
+                      texts[index],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.black,
                       ),
                     ),
+            subtitle: Row(
+              children: [
+                Text(
+                  subtitles[index],
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                    color: Colors.grey,
                   ),
-              ),
-            ],
+                ),
+                Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Transform.scale(
+                        scale: 0.5,
+                        child: Switch(
+                          value: true,
+                          onChanged: (bool value) {
+                          },
+                          activeColor: Colors.teal,
+                        ),
+                      ),
+                    ),
+                ),
+              ],
+            ),
           ),
         );
       },
