@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/features/home/pages/home_view.dart';
 
 class MessageView extends StatelessWidget {
   const MessageView({super.key});
@@ -8,7 +9,15 @@ class MessageView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Message"),
-        leading: Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeView()),
+            );
+          },
+          child: Icon(Icons.arrow_back_ios),
+        ),
         centerTitle: true,
         actions: [
           IconButton(

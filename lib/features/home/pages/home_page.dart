@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/features/application/widgets/application_view.dart';
 import 'package:mini_project/features/home/pages/home_view.dart';
 import 'package:mini_project/features/message/pages/message_view.dart';
 import 'package:mini_project/features/profile/pages/profile_view.dart';
@@ -16,7 +17,8 @@ class _HomePageState extends State<HomePage> {
     HomeView(),
     MessageView(),
     ProfileView(),
-    SettingView()
+    SettingView(),
+    ApplicationView()
   ];
   var selectedIndex = 0;
   @override
@@ -53,6 +55,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: "Setting"
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.contact_page_rounded),
+              label: "Apply"
           ),
         ],
       ),

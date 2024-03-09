@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/features/message/pages/message_view.dart';
+import 'package:mini_project/features/profile/widgets/name_field.dart';
+import 'package:mini_project/features/profile/widgets/email_field.dart';
+import 'package:mini_project/features/profile/widgets/password_field.dart';
+import 'package:mini_project/features/profile/widgets/save_now.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -8,7 +13,15 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
-        leading: Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MessageView()),
+            );
+          },
+          child: Icon(Icons.arrow_back_ios),
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -53,29 +66,7 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.0),
-          Container(
-            height: 40.0,
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
-            decoration: BoxDecoration(
-              border: Border.all(color:Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.white,
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: 30.0,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Ogechukwu Nnenna",
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 1.0),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          NameField(),
           SizedBox(height: 8.0),
           Padding(
             padding: EdgeInsets.only(left: 16.0),
@@ -91,29 +82,7 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.0),
-          Container(
-            height: 40.0,
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
-            decoration: BoxDecoration(
-              border: Border.all(color:Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.white,
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: 30.0,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "eleodimuooge@gmail.com",
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 1.0),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          EmailField(),
           SizedBox(height: 8.0),
           Padding(
             padding: EdgeInsets.only(left: 16.0),
@@ -129,53 +98,16 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.0),
-          Container(
-            height: 40.0,
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
-            decoration: BoxDecoration(
-              border: Border.all(color:Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.white,
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: 30.0,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "*********",
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 1.0),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          PasswordField(),
           SizedBox(height: 55.0),
-          Container(
-            height: 40.0,
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.teal,
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: 30.0,
-                child: Text(
-                  "Save Now",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          SaveNow(),
         ],
       ),
     );
   }
 }
+
+
+
+
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/features/profile/pages/profile_view.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});
@@ -8,7 +9,15 @@ class SettingView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Notification"),
-        leading: Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileView()),
+            );
+          },
+          child: Icon(Icons.arrow_back_ios),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
